@@ -46,30 +46,8 @@ export default {
   },
 
   beforeMount() {
-    this.getProjects()
   },
   methods: {
-    getProjects() {
-      axios.get(`${process.env.VUE_APP_API_URL}/project`, {
-        headers: { Authorization: `Bearer ${useJwt.getToken()}` },
-      }).then(response => {
-        console.log('Authorized');
-      }).catch(error => {
-        const errorRes = analysError(error.response)
-        const self = this
-        errorRes.forEach(value => {
-          self.$toast({
-            component: ToastificationContent,
-            position: 'top-right',
-            props: {
-              title: value,
-              icon: 'XIcon',
-              variant: 'danger',
-            },
-          })
-        })
-      })
-    },
     kFormatter,
   },
 }

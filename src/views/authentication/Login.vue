@@ -257,12 +257,6 @@ export default {
     continueAuth() {
       const decryptedUserData = decryptUserData(useJwt.getUserData())
 
-      if (decryptedUserData.first_login != 0) {
-        useJwt.changeFirstLoginStatus({
-          status: 0,
-        })
-      }
-
       this.$router.replace(getHomeRouteForLoggedInUser(decryptedUserData.role))
         .then(() => {
           this.$toast({

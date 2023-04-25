@@ -49,6 +49,8 @@ import axiosIns from '@/libs/axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import { StatusIndicator } from 'vue-status-indicator'
 import { analysError } from '@/_helpers/analys_error'
+import axios from "axios";
+import useJwt from "@/auth/jwt/useJwt";
 
 export default {
   components: {
@@ -83,16 +85,55 @@ export default {
         },
         {
           title: 'Audio train', slug: 'audio_train'
+        },
+        {
+          title: 'Repeat train', slug: 'repeat_train'
         }
       ],
       tabIndex: 0,
     }
   },
   beforeMount() {
-
+    this.getCount()
   },
   methods: {
-
+    getCount() {
+      this.loading = true
+      axios.get(`${process.env.VUE_APP_API_URL}/learning/count_repeat`, {
+        headers: {Authorization: `Bearer ${useJwt.getToken()}`},
+      }).then(response => {
+        this.loading = false
+        let check = 0;
+        this.words = response.data.data.map((word) => {
+          word.spell_names = [...word.spell]
+          this.shuffle(word.spell_names)
+          if (check === 0) {
+            word.show = true
+          } else {
+            word.show = false
+          }
+          word.first = 0
+          word.check = false
+          check++;
+          return word;
+        })
+      }).catch(error => {
+        this.loading = false
+        const errorRes = analysError(error.response)
+        const self = this
+        errorRes.forEach(value => {
+          self.$toast({
+            component: ToastificationContent,
+            position: 'top-right',
+            props: {
+              title: value,
+              icon: 'XIcon',
+              variant: 'danger',
+            },
+          })
+        })
+      })
+    }
   },
 }
 </script>

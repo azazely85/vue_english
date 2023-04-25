@@ -112,7 +112,7 @@ export default {
     playSound() {
       this.words = this.words.map((word) => {
         if (word.show) {
-          let sound = `http://laravel.local/api/world/voice/${word.name}_pronunciation_english_mp3`
+          let sound = `http://laravel.local/api/world/voice/${word.name.replaceAll(' ', '_')}_pronunciation_english_mp3`
           let audio = new Audio(sound);
           audio.play();
 

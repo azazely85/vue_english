@@ -37,36 +37,6 @@
           />
           <span>Change Password</span>
         </b-dropdown-item>
-
-<!--        <b-dropdown-item link-class="d-flex align-items-center">-->
-<!--          <feather-icon-->
-<!--            size="16"-->
-<!--            icon="MailIcon"-->
-<!--            class="mr-50"-->
-<!--          />-->
-<!--          <span>Inbox</span>-->
-<!--        </b-dropdown-item>-->
-
-<!--        <b-dropdown-item link-class="d-flex align-items-center">-->
-<!--          <feather-icon-->
-<!--            size="16"-->
-<!--            icon="CheckSquareIcon"-->
-<!--            class="mr-50"-->
-<!--          />-->
-<!--          <span>Task</span>-->
-<!--        </b-dropdown-item>-->
-
-<!--        <b-dropdown-item link-class="d-flex align-items-center">-->
-<!--          <feather-icon-->
-<!--            size="16"-->
-<!--            icon="MessageSquareIcon"-->
-<!--            class="mr-50"-->
-<!--          />-->
-<!--          <span>Chat</span>-->
-<!--        </b-dropdown-item>-->
-
-<!--        <b-dropdown-divider />-->
-
         <b-dropdown-item
           link-class="d-flex align-items-center"
           @click="logout"

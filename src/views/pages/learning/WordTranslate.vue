@@ -129,7 +129,7 @@ export default {
     playSound() {
         this.words = this.words.map((word) => {
           if (word.show) {
-            let sound = `http://laravel.local/api/world/voice/${word.name}_pronunciation_english_mp3`
+            let sound = `http://laravel.local/api/world/voice/${word.name.replaceAll(' ', '_')}_pronunciation_english_mp3`
             let audio = new Audio(sound);
             audio.play();
 
@@ -177,8 +177,11 @@ export default {
       })
     },
     playSound2(event) {
-      let audio = new Audio(event.target.attributes['data-src-mp3'].nodeValue);
-      audio.play();
+      if (event.target.attributes['data-src-mp3']) {
+        let audio = new Audio(event.target.attributes['data-src-mp3'].nodeValue);
+        audio.play();
+      }
+
     },
     shuffle(array) {
       let currentIndex = array.length,  randomIndex;

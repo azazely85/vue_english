@@ -131,10 +131,6 @@ export default class JwtService {
     })
   }
 
-  changeFirstLoginStatus(status) {
-    return this.axiosIns.post(`${process.env.VUE_APP_API_URL}/auth/change-flogin-status`, status)
-  }
-
   refreshToken() {
     return this.axiosIns.post(this.jwtConfig.refreshEndpoint, {
       refreshToken: this.getRefreshToken(),

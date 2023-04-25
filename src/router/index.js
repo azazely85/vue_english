@@ -4,8 +4,6 @@ import VueRouter from 'vue-router'
 // Routes
 import { getHomeRouteForLoggedInUser, getUserData } from '@/auth/utils'
 import { Role } from '@/_helpers/role.js'
-import work_pool from '@/router/routes/work_pool'
-import finances from '@/router/routes/finances'
 import dashboard from './routes/dashboard'
 import pages from './routes/pages'
 import others from './routes/others'
@@ -24,7 +22,7 @@ const router = new VueRouter({
     {
       path: '/learning',
       name: 'Learning',
-      component: () => import('@/views/pages/learning/Learning.vue'),
+      component: () => import('@/views/pages/learning/LearningHome.vue'),
       meta: {
         pageTitle: 'Learning',
         authorize: [Role.Admin],
@@ -117,151 +115,23 @@ const router = new VueRouter({
       },
     },
     {
-      path: '/client-info/:id',
-      name: 'Client-Info',
-      component: () => import('@/views/pages/work_pool/ClientInfoMain.vue'),
+      path: '/learning/repeat_train',
+      name: 'RepeatTrain',
+      component: () => import('@/views/pages/learning/RepeatTrain.vue'),
       meta: {
-        pageTitle: 'Client Info',
-        authorize: [Role.Admin],
-        breadcrumb: [
-          {
-            text: 'Clients',
-            to: '/work-pool',
-          },
-          {
-            text: 'Client Info',
-            active: true,
-          },
-        ],
-        parent: 'Clients',
-      },
-    },
-    {
-      path: '/comrades',
-      name: 'WordsToLearn',
-      component: () => import('@/views/pages/words_to_learn/WordsToLearn.vue'),
-      meta: {
-        pageTitle: 'Words To Learn',
-        authorize: [Role.Admin],
-        breadcrumb: [
-          {
-            text: 'Comrades',
-            active: true,
-          },
-        ],
-      },
-    },
-    {
-      path: '/project-info/:id',
-      name: 'Project-Info',
-      component: () => import('@/views/pages/projects/ProjectInfo.vue'),
-      meta: {
-        pageTitle: 'Project Info',
-        authorize: [Role.Admin],
-        breadcrumb: [
-          {
-            text: 'Clients',
-            to: '/work-pool',
-          },
-          {
-            text: 'Project Info',
-            active: true,
-          },
-        ],
-        parent: 'Clients',
-      },
-    },
-    {
-      path: '/comrade-info/:id',
-      name: 'Comrade-Info',
-      component: () => import('@/views/pages/comrades/Comrade/ComradeMain.vue'),
-      meta: {
-        pageTitle: 'Comrade Info',
-        authorize: [Role.Admin],
-        breadcrumb: [
-          {
-            text: 'Comrades',
-            to: '/comrades',
-          },
-          {
-            text: 'Comrade Info',
-            active: true,
-          },
-        ],
-        parent: 'Comrades',
-      },
-    },
-    {
-      path: '/interviews/settings',
-      name: 'InterviewsSettings',
-      component: () => import('@/views/pages/interviews/Setting.vue'),
-      meta: {
-        pageTitle: 'Interviews Settings',
-        authorize: [Role.Admin],
-      },
-    },
-    {
-      path: '/interviews/candidate/:hash',
-      name: 'CandidateInterview',
-      component: () => import('@/views/pages/interviews/CandidateInterviewForm.vue'),
-      meta: {
-        pageTitle: 'Interview',
-        authorize: [Role.Admin],
-      },
-    },
-    {
-      path: '/reports/comrades',
-      name: 'Reports-Comrades',
-      component: () => import('@/views/pages/reporting/Reporting.vue'),
-      meta: {
-        pageTitle: 'Comrades Report (Hubstaff/Upwork)',
-        authorize: [Role.Admin],
-      },
-    },
-    {
-      path: '/reports/projects',
-      name: 'Reports-Projects',
-      component: () => import('@/views/pages/reports/Projects.vue'),
-      meta: {
-        pageTitle: 'Projects For Report',
-        authorize: [Role.Admin],
-      },
-    },
-    {
-      path: '/reports/workload',
-      name: 'Reports-Workloads',
-      component: () => import('@/views/pages/reports/Workloads.vue'),
-      meta: {
-        pageTitle: 'Workload and Salaries (Hubstaff/Upwork)',
+        pageTitle: 'Repeat Train',
         authorize: [Role.Admin, Role.User],
-      },
-    },
-    {
-      path: '/reports/projects/project/:id',
-      name: 'Reports-Projects-Project',
-      component: () => import('@/views/pages/reports/Project.vue'),
-      meta: {
-        pageTitle: 'Activities Report (ClickUp)',
-        authorize: [Role.Admin],
         breadcrumb: [
           {
-            text: 'Projects reports',
-            to: '/reports/projects',
+            text: 'Learning',
+            active: false,
+            to: '/learning',
           },
           {
-            text: 'Activities Report',
+            text: 'Repeat Train',
             active: true,
           },
         ],
-      },
-    },
-    {
-      path: '/settings',
-      name: 'Settings',
-      component: () => import('@/views/pages/settings/Settings.vue'),
-      meta: {
-        pageTitle: 'Settings',
-        authorize: [Role.Admin],
       },
     },
     {
@@ -277,8 +147,6 @@ const router = new VueRouter({
     ...dashboard,
     ...pages,
     ...others,
-    ...finances,
-    ...work_pool,
     {
       path: '*',
       redirect: 'error-404',
