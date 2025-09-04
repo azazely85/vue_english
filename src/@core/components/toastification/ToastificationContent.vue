@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { BAvatar } from 'bootstrap-vue'
+import { BAvatar } from 'bootstrap-vue-next'
 
 export default {
   components: {

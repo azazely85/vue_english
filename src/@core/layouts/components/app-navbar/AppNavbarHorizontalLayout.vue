@@ -36,7 +36,7 @@
 <script>
 import {
   BLink, BNavbarNav,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import Bookmarks from './components/Bookmarks.vue'
 import Locale from './components/Locale.vue'
 import DarkToggler from './components/DarkToggler.vue'

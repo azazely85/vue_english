@@ -332,7 +332,7 @@
 import {
   BSidebar, BForm, BFormGroup, BFormInput, BFormInvalidFeedback, BButton, BFormSelect, BFormRadio,
   BFormDatepicker, BTooltip, BFormCheckbox, BSpinner,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import Ripple from 'vue-ripple-directive'
 import vSelect from 'vue-select'

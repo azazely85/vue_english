@@ -63,7 +63,7 @@
 <script>
 import {
   BRow, BCol, BCard,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 
 import AccountsList from '@/views/pages/finances/cashflow/accounts/AccountsList.vue'
 import TransactionsList from '@/views/pages/finances/cashflow/transactions/TransactionsList.vue'

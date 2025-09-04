@@ -44,7 +44,7 @@
 <script>
 import {
   BRow, BCol, BContainer, BCard, BLink, BCardHeader, VBTooltip, BCardBody, BOverlay, BTabs, BTab,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axiosIns from '@/libs/axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import { StatusIndicator } from 'vue-status-indicator'

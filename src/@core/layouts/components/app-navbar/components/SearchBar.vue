@@ -129,7 +129,7 @@
 <script>
 import {
   BFormInput, BLink, BImg, BAvatar,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ref, watch } from '@vue/composition-api'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import useAutoSuggest from '@core/components/app-auto-suggest/useAutoSuggest'

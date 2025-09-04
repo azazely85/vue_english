@@ -27,7 +27,7 @@
 <script>
 import {
   BListGroup, BListGroupItem, BFormRating, BBadge,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 
 export default {
   components: {

@@ -10,7 +10,7 @@
 <script>
 import useAppConfig from '@core/app-config/useAppConfig'
 import { computed } from '@vue/composition-api'
-import { BNavItem } from 'bootstrap-vue'
+import { BNavItem } from 'bootstrap-vue-next'
 
 export default {
   components: {

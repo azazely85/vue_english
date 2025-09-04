@@ -341,7 +341,7 @@ import {
   BSidebar,
   BTooltip,
   BSpinner,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import {
   alphaNum, email, min, required,
 } from '@validations'

@@ -121,7 +121,7 @@ import {
   BTab,
   BTabs,
   VBTooltip
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import {StatusIndicator} from 'vue-status-indicator'
 import {analysError} from '@/_helpers/analys_error'

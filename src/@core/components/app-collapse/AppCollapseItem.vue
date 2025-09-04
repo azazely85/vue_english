@@ -41,7 +41,7 @@
 <script>
 import {
   BCard, BCardHeader, BCardBody, BCollapse, BBadge,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { v4 as uuidv4 } from 'uuid'
 
 export default {

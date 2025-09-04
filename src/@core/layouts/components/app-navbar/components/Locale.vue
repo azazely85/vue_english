@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { BNavItemDropdown, BDropdownItem, BImg } from 'bootstrap-vue'
+import { BNavItemDropdown, BDropdownItem, BImg } from 'bootstrap-vue-next'
 
 export default {
   components: {

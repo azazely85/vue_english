@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { BLink, BImg } from 'bootstrap-vue'
+import { BLink, BImg } from 'bootstrap-vue-next'
 import { $themeConfig } from '@themeConfig'
 
 export default {

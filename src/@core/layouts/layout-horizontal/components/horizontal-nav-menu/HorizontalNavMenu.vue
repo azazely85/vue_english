@@ -56,7 +56,7 @@
 <script>
 import {
   BNavbarNav, BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
 import navMenuItems from '@/navigation/horizontal'
 import HorizontalNavMenuItems from './components/horizontal-nav-menu-items/HorizontalNavMenuItems.vue'

@@ -18,7 +18,7 @@
 import {
   BSidebar, BForm, BFormGroup, BFormInput, BFormInvalidFeedback, BButton, BFormSelect, BFormRadio,
   BFormDatepicker, BTooltip, BFormCheckbox, BSpinner,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import vSelect from 'vue-select'
 import flatPickr from 'vue-flatpickr-component'

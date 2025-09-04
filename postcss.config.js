@@ -1,5 +1,7 @@
-const rtl = require('postcss-rtl')
+// const rtl = require('postcss-rtl')
 
 module.exports = {
-  plugins: [rtl()],
+  plugins: [
+    // rtl() - temporarily disabled due to compatibility issues
+  ],
 }

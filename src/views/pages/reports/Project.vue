@@ -265,7 +265,7 @@ import {
   BFormText,
   BOverlay,
   BCardHeader
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import VueHtml2pdf from 'vue-html2pdf'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'

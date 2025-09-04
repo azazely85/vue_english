@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { BCard, BCardText } from 'bootstrap-vue'
+import { BCard, BCardText } from 'bootstrap-vue-next'
 
 export default {
   components: {

@@ -39,7 +39,7 @@
 
 <script>
 /* eslint-disable global-require */
-import { BLink, BButton, BImg } from 'bootstrap-vue'
+import { BLink, BButton, BImg } from 'bootstrap-vue-next'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
 import store from '@/store/index'
 

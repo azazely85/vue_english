@@ -79,7 +79,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
 import {
   BCard, BLink, BCardText, BCardTitle, BFormGroup, BFormInput, BForm, BButton,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { required, email } from '@validations'
 import ToastificationContent from '@core/components/toastification/ToastificationContent'
 import CubeSpin from 'vue-loading-spinner/src/components/Circle'

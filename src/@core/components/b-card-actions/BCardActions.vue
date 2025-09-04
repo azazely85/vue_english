@@ -15,7 +15,6 @@
       :aria-expanded="!content_visible ? 'true' : 'false'"
       :aria-controls="parentID"
       :style="cardStyles"
-      v-on="$listeners"
     >
       <b-row
         class="d-flex justify-content-end"
@@ -78,7 +77,7 @@
 <script>
 import {
   BCard, BCardTitle, BCardSubTitle, BCardBody, BCollapse, BOverlay, BLink, BRow, VBTooltip,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { StatusIndicator } from 'vue-status-indicator'
 import BCardActionsContainer from './BCardActionsContainer.vue'
 

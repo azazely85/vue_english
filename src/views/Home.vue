@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { BCard, BCardText, BLink } from 'bootstrap-vue'
+import { BCard, BCardText, BLink } from 'bootstrap-vue-next'
 
 export default {
   components: {

@@ -53,7 +53,7 @@
 <script>
 import {
   BTable, BFormInput, BOverlay,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { analysError } from '@/_helpers/analys_error'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import axios from 'axios'

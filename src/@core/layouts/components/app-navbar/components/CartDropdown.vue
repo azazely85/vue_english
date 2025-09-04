@@ -111,7 +111,7 @@
 <script>
 import {
   BNavItemDropdown, BBadge, BMedia, BLink, BImg, BFormSpinbutton, BButton,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import Ripple from 'vue-ripple-directive'
 

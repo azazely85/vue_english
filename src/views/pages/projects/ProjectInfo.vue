@@ -258,7 +258,7 @@
 import {
   BFormGroup, BFormInput, BFormTextarea, BFormSelect, BTable, BButton, BDropdown, BDropdownItem, BFormCheckbox,
   BRow, BCol, BCard, BCardHeader, BCardBody,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent'
 import lodash from 'lodash'

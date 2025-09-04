@@ -28,7 +28,7 @@
 <script>
 import {
   BRow, BCol, BCard, BCardText,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 
 export default {
   components: {

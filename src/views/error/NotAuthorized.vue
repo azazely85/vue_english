@@ -32,7 +32,7 @@
 
 <script>
 /* eslint-disable global-require */
-import { BLink, BImg, BButton } from 'bootstrap-vue'
+import { BLink, BImg, BButton } from 'bootstrap-vue-next'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
 import store from '@/store/index'
 import { getHomeRouteForLoggedInUser } from '@/auth/utils'

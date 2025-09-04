@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { BRow, BCol } from 'bootstrap-vue'
+import { BRow, BCol } from 'bootstrap-vue-next'
 import ComradeInfo from '@/views/pages/comrades/Comrade/ComradeInfo.vue'
 import ComradeContracts from '@/views/pages/comrades/Comrade/ComradeContracts.vue'
 import ComradeWorkloadAndSalary from '@/views/pages/comrades/Comrade/ComradeWorkloadAndSalary.vue'

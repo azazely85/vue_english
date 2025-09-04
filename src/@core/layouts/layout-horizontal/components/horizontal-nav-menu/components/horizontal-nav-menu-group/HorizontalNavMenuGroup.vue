@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import { BLink } from 'bootstrap-vue'
+import { BLink } from 'bootstrap-vue-next'
 import { resolveHorizontalNavMenuItemComponent as resolveNavItemComponent } from '@core/layouts/utils'
 import { useUtils as useI18nUtils } from '@core/libs/i18n'
 import { useUtils as useAclUtils } from '@core/libs/acl'

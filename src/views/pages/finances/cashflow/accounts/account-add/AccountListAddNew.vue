@@ -131,7 +131,7 @@
 <script>
 import {
   BSidebar, BForm, BFormGroup, BFormInput, BFormInvalidFeedback, BButton, BFormSelect,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { ref } from '@vue/composition-api'
 import formValidation from '@core/comp-functions/forms/form-validation'

@@ -75,7 +75,7 @@
 <script>
 import {
   BSidebar, BForm, BFormGroup, BFormInput, BFormInvalidFeedback, BButton, BFormSelect,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import Ripple from 'vue-ripple-directive'
 import vSelect from 'vue-select'

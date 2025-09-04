@@ -430,7 +430,7 @@
 import {
   BButton, BTable, BLink,
   BDropdown, BDropdownItem, BFormGroup, BTabs, BTab, BOverlay, BCol, BContainer, BRow,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import AnimatedNumber from 'animated-number-vue'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import axios from 'axios'

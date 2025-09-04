@@ -121,7 +121,7 @@
 <script>
 import {
   BRow, BCol, BCard, BFormGroup, BFormInput, BFormTextarea, BButton,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import useJwt from '@/auth/jwt/useJwt'

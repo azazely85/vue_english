@@ -98,7 +98,7 @@
 <script>
 import {
   BButton, BFormCheckbox, BFormGroup, BFormInput, BLink, BRow, BTable, BSpinner, BOverlay,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import vSelect from 'vue-select'

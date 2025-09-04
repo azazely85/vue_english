@@ -121,7 +121,7 @@
 import {
   BCard, BRow, BCol, BCardTitle, BCardHeader, BCardBody, BListGroup, BListGroupItem, BFormRating, BButton, BFormTextarea,
   BSpinner,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import AppCollapse from '@core/components/app-collapse/AppCollapse.vue'

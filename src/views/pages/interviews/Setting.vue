@@ -55,7 +55,7 @@
 <script>
 import {
   BCard, BCardBody, BCardTitle, BCardHeader, BFormFile, BRow, BCol, BSpinner, BButton, BLink,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import useJwt from '@/auth/jwt/useJwt'

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { BLink } from 'bootstrap-vue'
+import { BLink } from 'bootstrap-vue-next'
 
 export default {
   components: {

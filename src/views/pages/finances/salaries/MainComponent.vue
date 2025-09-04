@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { BRow, BButton, BCol } from 'bootstrap-vue'
+import { BRow, BButton, BCol } from 'bootstrap-vue-next'
 import SalariesTableView from '@/views/pages/finances/salaries/table-view/SalariesTableView.vue'
 import SalariesPayoutView from '@/views/pages/finances/salaries/payout-view/SalariesPayoutView.vue'
 import MonthsToggler from '@/views/HelperComponents/MonthsToggler.vue'

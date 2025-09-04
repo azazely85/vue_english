@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { BCard, BCardBody, BAvatar } from 'bootstrap-vue'
+import { BCard, BCardBody, BAvatar } from 'bootstrap-vue-next'
 
 export default {
   components: {

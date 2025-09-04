@@ -200,7 +200,7 @@
 <script>
 import {
   BButton, BSpinner, BRow, BCol, BCard, BCardBody, BFormFile, BLink, BTable, BBadge, BOverlay
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axiosIns from '@/libs/axios'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import { analysError } from '@/_helpers/analys_error'

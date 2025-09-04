@@ -101,7 +101,7 @@
 <script>
 import {
   BLink, BNavbarNav, BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import DarkToggler from '@core/layouts/components/app-navbar/components/DarkToggler.vue'
 import useJwt from '@/auth/jwt/useJwt'
 import { initialAbility } from '@/libs/acl/config'

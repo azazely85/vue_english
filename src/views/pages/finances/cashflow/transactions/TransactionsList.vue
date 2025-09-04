@@ -306,7 +306,7 @@
 import {
   BTable, BBadge, BFormGroup, BPagination, BContainer, BRow,BFormInput,
   BButton, BLink, BTabs, BTab, BOverlay, BCol, VBTooltip, BFormSelect,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axios from 'axios'
 import VueContext from 'vue-context'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'

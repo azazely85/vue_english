@@ -21,7 +21,7 @@
 
 <script>
 import { useWindowScroll } from '@vueuse/core'
-import { BButton } from 'bootstrap-vue'
+import { BButton } from 'bootstrap-vue-next'
 import Ripple from 'vue-ripple-directive'
 
 export default {

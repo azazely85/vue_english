@@ -161,7 +161,7 @@ import {
   BInputGroupAppend,
   BFormCheckbox,
   BModal, VBModal,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import VuexyLogo from '@core/layouts/components/Logo.vue'
 import { required, email } from '@validations'
 import { togglePasswordVisibility } from '@core/mixins/ui/forms'

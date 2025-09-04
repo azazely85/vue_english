@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { BCard, BRow, BSpinner } from 'bootstrap-vue'
+import { BCard, BRow, BSpinner } from 'bootstrap-vue-next'
 
 export default {
   components: {

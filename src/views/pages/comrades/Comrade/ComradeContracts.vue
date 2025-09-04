@@ -111,7 +111,7 @@
 <script>
 import {
   BRow, BCol, BCard, BCardHeader, BContainer, BBadge, BCardBody,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 
 export default {
   components: {

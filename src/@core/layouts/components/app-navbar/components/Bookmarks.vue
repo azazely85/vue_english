@@ -84,7 +84,7 @@
 <script>
 import {
   BNavbarNav, BNavItem, BTooltip, BNavItemDropdown, BFormInput, BDropdownItem,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import useAutoSuggest from '@core/components/app-auto-suggest/useAutoSuggest'
 import { ref, watch } from '@vue/composition-api'

@@ -123,7 +123,7 @@
 <script>
 import {
   BNavItemDropdown, BDropdownItem, BDropdownDivider, BAvatar,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { avatarText } from '@core/utils/filter'
 import { initialAbility } from '@/libs/acl/config'
 import useJwt from '@/auth/jwt/useJwt'

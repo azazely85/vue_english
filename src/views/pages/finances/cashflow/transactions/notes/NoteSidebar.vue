@@ -142,7 +142,7 @@
 <script>
 import {
   BButton, BButtonGroup, BSidebar, BFormTextarea, BCard, BCardText,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import Ripple from 'vue-ripple-directive'
 import { mapGetters, mapActions } from 'vuex'
 

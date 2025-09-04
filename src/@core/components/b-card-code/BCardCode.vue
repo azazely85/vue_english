@@ -2,7 +2,6 @@
   <b-card
     v-bind="cardAttrs"
     no-body
-    v-on="$listeners"
   >
     <div class="card-header">
       <!-- Title & SubTitle -->
@@ -65,7 +64,7 @@
 <script>
 import {
   BCard, BCardTitle, BCardSubTitle, BCardBody, BCollapse,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import 'prismjs'
 import 'prismjs/themes/prism-tomorrow.css'
 import Prism from 'vue-prism-component'

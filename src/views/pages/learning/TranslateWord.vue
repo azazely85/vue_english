@@ -67,7 +67,7 @@
 import {
   BRow, BCol, BContainer, BCard, BLink, BCardHeader, VBTooltip, BCardBody, BOverlay, BTabs, BTab, BListGroup,
   BListGroupItem, BButton
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import ToastificationContent from '@core/components/toastification/ToastificationContent.vue'
 import { StatusIndicator } from 'vue-status-indicator'
 import { analysError } from '@/_helpers/analys_error'

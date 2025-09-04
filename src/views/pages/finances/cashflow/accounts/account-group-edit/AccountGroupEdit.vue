@@ -92,7 +92,7 @@
 <script>
 import {
   BSidebar, BForm, BFormGroup, BFormInput, BFormInvalidFeedback, BButton,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import { ref } from '@vue/composition-api'
 import { required, alphaNum, email } from '@validations'

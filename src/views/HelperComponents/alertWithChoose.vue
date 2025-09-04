@@ -27,7 +27,7 @@
 <script>
 import {
   BCard, BCardBody, BRow, BButton, BModal,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 
 export default {
   components: {

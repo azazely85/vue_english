@@ -100,7 +100,7 @@
 </template>
 
 <script>
-import { BButton } from 'bootstrap-vue'
+import { BButton } from 'bootstrap-vue-next'
 
 export default {
   name: 'VxTour',

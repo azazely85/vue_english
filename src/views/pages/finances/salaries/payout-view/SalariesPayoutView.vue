@@ -182,7 +182,7 @@
 <script>
 import {
    BRow, BCol, BFormInput, BButton, BLink, BTooltip, BSpinner
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import axiosIns from '@/libs/axios'
 import ToastificationContentVue from '@/@core/components/toastification/ToastificationContent.vue'
 import { secToTime } from '@/_helpers/time'

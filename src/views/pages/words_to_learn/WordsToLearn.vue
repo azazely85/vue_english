@@ -44,7 +44,7 @@ import {
   BLink,
   BRow,
   BBadge, VBTooltip,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import Ripple from 'vue-ripple-directive'
 import ToastificationContent from '@core/components/toastification/ToastificationContent'
 import { analysError } from '@/_helpers/analys_error'
