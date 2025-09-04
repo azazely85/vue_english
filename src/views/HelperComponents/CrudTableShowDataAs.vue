@@ -6,15 +6,14 @@
       v-bind="presentComponentProps"
     >
       {{ badge }}
-      <label
-        slot="option-label"
-        slot-scope="{ node }"
-      >
-        <feather-icon
-          :icon="node.isBranch ? `GlobeIcon` : `FolderIcon`"
-        />
-        {{ node.label }}
-      </label>
+      <template #option-label="{ node }">
+        <label>
+          <feather-icon
+            :icon="node.isBranch ? `GlobeIcon` : `FolderIcon`"
+          />
+          {{ node.label }}
+        </label>
+      </template>
     </component>
   </div>
 </template>
@@ -22,10 +21,10 @@
 <script>
 import {
   BFormInput, BFormCheckbox, BLink, BBadge,
-} from 'bootstrap-vue'
+} from 'bootstrap-vue-next'
 import vSelect from 'vue-select'
-import FishtankTreeSelect from '@fishtank/vue-treeselect'
-import '@fishtank/vue-treeselect/dist/vue-treeselect.css'
+// import Treeselect from '@zanmato/vue3-treeselect'
+// import '@zanmato/vue3-treeselect/dist/vue3-treeselect.min.css'
 import { isObject } from '@core/utils/utils'
 
 export default {
@@ -35,7 +34,7 @@ export default {
     BLink,
     BBadge,
     vSelect,
-    FishtankTreeSelect,
+    // Treeselect,
   },
   props: {
     dataAs: {
@@ -125,7 +124,7 @@ export default {
             clearable: false,
             alwaysOpen: false,
           }
-          return 'FishtankTreeSelect'
+          return 'v-select' // Temporarily using v-select instead of Treeselect
         }
         if (isObject(this.item[this.tableKey])) {
           this.badge = this.item[this.tableKey][this.selectOptions[this.tableKey].label]

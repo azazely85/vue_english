@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 // Routes
 import { getHomeRouteForLoggedInUser, getUserData } from '@/auth/utils'
@@ -10,13 +9,10 @@ import others from './routes/others'
 
 const root = getUserData() ? getHomeRouteForLoggedInUser(getUserData().role) : getHomeRouteForLoggedInUser(-1)
 
-Vue.use(VueRouter)
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
   scrollBehavior() {
-    return { x: 0, y: 0 }
+    return { top: 0, left: 0 }
   },
   routes: [
     {

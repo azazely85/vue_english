@@ -19,7 +19,7 @@
       </div>
     </b-card-body>
 
-    <vue-apex-charts
+    <apexchart
       type="area"
       height="100"
       width="100%"
@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import { BCard, BCardBody, BAvatar } from 'bootstrap-vue'
-import VueApexCharts from 'vue-apexcharts'
+import { BCard, BCardBody, BAvatar } from 'bootstrap-vue-next'
+import VueApexCharts from 'vue3-apexcharts'
 import { $themeColors } from '@themeConfig'
 import { areaChartOptions } from './chartOptions'
 

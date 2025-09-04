@@ -1,7 +1,6 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import VueMoment from 'vue-moment'
-import { ToastPlugin, ModalPlugin } from 'bootstrap-vue'
-import VueCompositionAPI from '@vue/composition-api'
+import { ToastPlugin, ModalPlugin } from 'bootstrap-vue-next'
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
 import router from './router'
 import store from './store'
@@ -11,24 +10,12 @@ import App from './App.vue'
 import './global-components'
 
 // 3rd party plugins
-import '@/libs/portal-vue'
 import '@/libs/toastification'
 import './registerServiceWorker'
 import '@/libs/sweet-alerts'
 
 // date picker
-Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker)
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
-
-// BSV Plugin Registration
-Vue.use(ToastPlugin)
-Vue.use(ModalPlugin)
-
-// Composition API
-Vue.use(VueCompositionAPI)
-
-// moment
-Vue.use(VueMoment)
 
 // import core styles
 require('@core/scss/core.scss')
@@ -36,10 +23,20 @@ require('@core/scss/core.scss')
 // import assets styles
 require('@/assets/scss/style.scss')
 
-Vue.config.productionTip = false
+const app = createApp(App)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App),
-}).$mount('#app')
+// BSV Plugin Registration
+app.use(ToastPlugin)
+app.use(ModalPlugin)
+
+// moment
+app.use(VueMoment)
+
+// Global component registration
+app.component('VueCtkDateTimePicker', VueCtkDateTimePicker)
+
+// Use router and store
+app.use(router)
+app.use(store)
+
+app.mount('#app')
