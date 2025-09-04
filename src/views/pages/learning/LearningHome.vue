@@ -31,7 +31,7 @@
                     class="font-weight-bolder font-medium-3"
                     :to="`/learning/${learning.slug}`"
                   >
-                    {{ learning.title }}
+                    {{ learning.title }} {{learning.count}}
                   </b-link>
                 </b-card-body>
               </b-card>
@@ -75,19 +75,19 @@ export default {
       onlyArchivedProjects: false,
       learnings: [
         {
-          title: 'Brain Storm', slug: 'brain_storm'
+          title: 'Brain Storm', slug: 'brain_storm', count: 0
         },
         {
-          title: 'Word translate', slug: 'word_translate'
+          title: 'Word translate', slug: 'word_translate', count: 0
         },
         {
-          title: 'Translate word', slug: 'translate_word'
+          title: 'Translate word', slug: 'translate_word', count: 0
         },
         {
-          title: 'Audio train', slug: 'audio_train'
+          title: 'Audio train', slug: 'audio_train', count: 0
         },
         {
-          title: 'Repeat train', slug: 'repeat_train'
+          title: 'Repeat train', slug: 'repeat_train', count: 0
         }
       ],
       tabIndex: 0,
@@ -99,22 +99,23 @@ export default {
   methods: {
     getCount() {
       this.loading = true
-      axios.get(`${process.env.VUE_APP_API_URL}/learning/count_repeat`, {
+      axios.get(`${process.env.VUE_APP_API_URL}/learning/count`, {
         headers: {Authorization: `Bearer ${useJwt.getToken()}`},
       }).then(response => {
         this.loading = false
-        let check = 0;
-        this.words = response.data.data.map((word) => {
-          word.spell_names = [...word.spell]
-          this.shuffle(word.spell_names)
-          if (check === 0) {
-            word.show = true
-          } else {
-            word.show = false
+        this.learnings = this.learnings.map((word) => {
+         if (word.slug === 'word_translate') {
+           word.count = response.data.wt
+         }
+          if (word.slug === 'translate_word') {
+            word.count = response.data.tw
           }
-          word.first = 0
-          word.check = false
-          check++;
+          if (word.slug === 'audio_train') {
+            word.count = response.data.audio
+          }
+          if (word.slug === 'repeat_train') {
+            word.count = response.data.repeat
+          }
           return word;
         })
       }).catch(error => {

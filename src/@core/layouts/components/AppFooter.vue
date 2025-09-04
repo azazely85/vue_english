@@ -3,11 +3,11 @@
     <span class="float-md-left d-block d-md-inline-block mt-25">
       <b-link
         class="ml-25"
-        href="https://devurai.com/"
+        href="https://vidshup.pp.ua/"
         target="_blank"
-      >DEVURAI</b-link>
+      >VidsHup</b-link>
       {{ new Date().getFullYear() }}
-      <span class="d-none d-sm-inline-block">, DCMS</span>
+      <span class="d-none d-sm-inline-block">, English</span>
     </span>
   </p>
 </template>
@@ -21,3 +21,4 @@ export default {
   },
 }
 </script>
+#5acdae

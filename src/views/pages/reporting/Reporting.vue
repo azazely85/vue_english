@@ -12,7 +12,7 @@
           class="w-50"
           auto-close
           :dark="this.$store.state.appConfig.layout.skin === 'dark'"
-          color="#F05A28"
+          color="#5acdae"
           :custom-shortcuts="myRanges"
           :shortcut="'mtd'"
           @input="getReport()"
@@ -46,7 +46,7 @@
               locale="en"
               auto-close
               :dark="this.$store.state.appConfig.layout.skin === 'dark'"
-              color="#F05A28"
+              color="#5acdae"
               :first-day-of-week=1
               :custom-shortcuts="myRanges"
               :shortcut="'mtd'"

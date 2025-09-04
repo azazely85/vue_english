@@ -131,6 +131,15 @@
             </div>
           </b-form>
         </validation-observer>
+        <div class="mt-2">
+          <b-button
+            variant="outline-primary"
+            block
+            @click="loginWithGoogle"
+          >
+            <span>Sign in with Google</span>
+          </b-button>
+        </div>
       </b-card>
       <!-- /Login v1 -->
     </div>
@@ -161,6 +170,7 @@ import CubeSpin from 'vue-loading-spinner/src/components/Circle'
 import useJwt from '@/auth/jwt/useJwt'
 import { getHomeRouteForLoggedInUser } from '@/auth/utils'
 import { decryptUserData, encryptUserData } from '@/_helpers/encryption'
+import axios from '@axios'
 
 export default {
   components: {
@@ -253,6 +263,57 @@ export default {
             })
         }
       })
+    },
+    async loginWithGoogle() {
+      try {
+        this.blockButton = true
+        let accessToken = null
+
+        // If Google Identity Services is integrated, try to read token from global callback result
+        // Fallback: prompt for a token (useful for initial wiring/testing)
+        if (!accessToken) {
+          // eslint-disable-next-line no-alert
+          accessToken = window?.googleAccessToken || prompt('Paste Google OAuth access token')
+        }
+
+        if (!accessToken) {
+          this.$toast({
+            component: ToastificationContent,
+            position: 'top-right',
+            props: { title: 'No Google access token provided', icon: 'AlertTriangleIcon', variant: 'warning' },
+          })
+          this.blockButton = false
+          return
+        }
+
+        const response = await axios.post('/api/auth/google', { access_token: accessToken })
+        const { token, user } = response.data || {}
+
+        if (token && user) {
+          localStorage.setItem('userData', encryptUserData(user))
+          useJwt.setToken(token)
+
+          if (user.first_login === 1) {
+            this.isFirstLogin = true
+          } else {
+            this.continueAuth()
+          }
+        } else {
+          this.$toast({
+            component: ToastificationContent,
+            position: 'top-right',
+            props: { title: 'Invalid Google login response', icon: 'XIcon', variant: 'danger' },
+          })
+        }
+      } catch (error) {
+        this.$toast({
+          component: ToastificationContent,
+          position: 'top-right',
+          props: { title: 'Google login failed', icon: 'XIcon', variant: 'danger' },
+        })
+      } finally {
+        this.blockButton = false
+      }
     },
     continueAuth() {
       const decryptedUserData = decryptUserData(useJwt.getUserData())

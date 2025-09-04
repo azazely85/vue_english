@@ -112,7 +112,7 @@ export default {
     playSound() {
       this.words = this.words.map((word) => {
         if (word.show) {
-          let sound = `http://laravel.local/api/world/voice/${word.name.replaceAll(' ', '_')}_pronunciation_english_mp3`
+          let sound = `${process.env.VUE_APP_API_URL}/world/voice/${word.name.replaceAll(' ', '_')}_pronunciation_english_mp3`
           let audio = new Audio(sound);
           audio.play();
 
@@ -208,6 +208,26 @@ export default {
       if (!check) {
         event.target.style.background = 'red';
         word.first = 1
+        axios.get(`${process.env.VUE_APP_API_URL}/learning/change_status_id?id=${word.word_id}`, {
+          headers: {Authorization: `Bearer ${useJwt.getToken()}`},
+        }).then(response => {
+          this.loading = false
+        }).catch(error => {
+          this.loading = false
+          const errorRes = analysError(error.response)
+          const self = this
+          errorRes.forEach(value => {
+            self.$toast({
+              component: ToastificationContent,
+              position: 'top-right',
+              props: {
+                title: value,
+                icon: 'XIcon',
+                variant: 'danger',
+              },
+            })
+          })
+        })
       } else {
         if (word.first === 0) {
           word.first = 1

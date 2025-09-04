@@ -2,8 +2,8 @@ const path = require('path')
 
 module.exports = {
   pwa: {
-    name: 'DCMS',
-    themeColor: '#F05A28',
+    name: 'VueEnglish',
+    themeColor: '#5acdae',
     msTileColor: '#000000',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',

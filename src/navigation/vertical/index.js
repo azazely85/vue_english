@@ -6,5 +6,11 @@ export default [
     icon: 'UserIcon',
     route: 'Users',
     role: [Role.Admin],
-  }
+  },
+  {
+    title: 'Learning',
+    icon: 'UsersIcon',
+    route: 'Learning',
+    role: [Role.Admin],
+  },
 ]

@@ -11,7 +11,7 @@
         class="w-50"
         auto-close
         dark
-        color="#F05A28"
+        color="#5acdae"
         :first-day-of-week=1
         :custom-shortcuts="myRanges"
         :shortcut="'mtd'"

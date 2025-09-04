@@ -24,7 +24,7 @@
                   auto-close
                   :first-day-of-week=1
                   :dark="this.$store.state.appConfig.layout.skin === 'dark'"
-                  color="#F05A28"
+                  color="#5acdae"
                   :custom-shortcuts="myRanges"
                   :shortcut="'mtd'"
                   @input="getReport()"

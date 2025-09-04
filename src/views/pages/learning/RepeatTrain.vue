@@ -54,7 +54,18 @@
                         <b-card-body
                                 class="d-flex justify-content-center"
                         >
-                            <div v-html="word.description"></div>
+                            <div>
+                                <div v-html="word.description"></div>
+                                <div v-if="word.prsi">Present simple (I / you / we / they ): <b>{{word.prsi}}</b></div>
+                                <div v-if="word.prsh">Present simple (he / she / it): <b>{{word.prsh}}</b></div>
+                                <div v-if="word.pas">Past simple: <b>{{word.pas}}</b></div>
+                                <div v-if="word.pasp">Past participle: <b>{{word.pasp}}</b></div>
+                                <div v-if="word.ing">Ing: <b>{{word.ing}}</b></div>
+                                <div v-if="word.pasp2">Ing: <b>{{word.pasp2}}</b></div>
+                                <div v-if="word.comparative">Comparative: <b>{{word.comparative}}</b></div>
+                                <div v-if="word.superlative">Superlative: <b>{{word.superlative}}</b></div>
+                                <div v-if="word.plural">Plural: <b>{{word.plural}}</b></div>
+                            </div>
                         </b-card-body>
                     </b-list-group>
                     <div v-if="checkTranslate"
@@ -167,11 +178,11 @@ export default {
       let check = true;
       this.checkTranslate = false;
       this.words = this.words.map((word) => {
-        if (word.show) {
+        if (word.check) {
           word.show = false
         }
         if (check) {
-          if (!word.show) {
+          if (!word.check) {
             word.show = true;
             check = false;
           }
@@ -187,18 +198,21 @@ export default {
         return
       }
       if (translate !== word.translate) {
-        event.target.style.background = '#F05A28';
+        event.target.style.background = 'red';
       } else {
           event.target.style.background = 'green';
       }
       this.checkTranslate = true
-      word.check = translate === word.translate;
+      word.check = 1;
       axios.get(`${process.env.VUE_APP_API_URL}/learning/change_repeat?check=${translate === word.translate}&id=${word.word_id}`,
         {
           headers: {Authorization: `Bearer ${useJwt.getToken()}`},
         }).then(response => {
         this.loading = false
         this.check = true
+        let sound = `${process.env.VUE_APP_API_URL}/world/voice/${word.name.replaceAll(' ', '_')}_pronunciation_english_mp3`
+        let audio = new Audio(sound);
+        audio.play();
       }).catch(error => {
         this.loading = false
         const errorRes = analysError(error.response)

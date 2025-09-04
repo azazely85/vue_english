@@ -6,7 +6,7 @@
     @mouseleave="collapseClose"
   >
     <b-card-header
-      style="background-color: #F05A28"
+      style="background-color: #5acdae"
       :class="{'collapsed': !visible}"
       :aria-expanded="visible ? 'true' : 'false'"
       :aria-controls="collapseItemID"
