@@ -7,7 +7,7 @@ import dashboard from './routes/dashboard'
 import pages from './routes/pages'
 import others from './routes/others'
 
-const root = getUserData() ? getHomeRouteForLoggedInUser(getUserData().role) : getHomeRouteForLoggedInUser(-1)
+const root = getUserData() ? getHomeRouteForLoggedInUser(getUserData().role) : '/'
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -139,7 +139,7 @@ const router = createRouter({
         authorize: [Role.Admin],
       },
     },
-    { path: '/', redirect: root },
+    // { path: '/', redirect: root }, // Removed redirect to allow public home page access
     ...dashboard,
     ...pages,
     ...others,
@@ -158,7 +158,7 @@ router.beforeEach((to, _, next) => {
   if (authorize) {
     if (!currentUser) {
       // not logged in so redirect to login page with the return url
-      return next({ path: '/' })
+      return next({ path: '/login' })
     }
 
     // check if route is restricted by role

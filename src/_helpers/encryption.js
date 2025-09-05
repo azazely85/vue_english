@@ -1,7 +1,7 @@
 const CryptoJS = require('crypto-js')
 import useJwt from "@/auth/jwt/useJwt";
 
-const secretKey = 'dcms_secret_key'
+const secretKey = 'English Vidshup_secret_key'
 
 export const encryptUserData = userData => CryptoJS.AES.encrypt(JSON.stringify(userData), secretKey)
 

@@ -11,14 +11,16 @@
       class="header-navbar navbar navbar-shadow align-items-center"
       :class="[navbarTypeClass]"
     >
-      <slot
-        name="navbar"
-        :toggleVerticalMenuActive="toggleVerticalMenuActive"
-        :navbarBackgroundColor="navbarBackgroundColor"
-        :navbarTypeClass="[...navbarTypeClass, 'header-navbar navbar navbar-shadow align-items-center']"
-      >
-        <app-navbar-vertical-layout :toggle-vertical-menu-active="toggleVerticalMenuActive" />
-      </slot>
+      <template #default>
+        <slot
+          name="navbar"
+          :toggleVerticalMenuActive="toggleVerticalMenuActive"
+          :navbarBackgroundColor="navbarBackgroundColor"
+          :navbarTypeClass="[...navbarTypeClass, 'header-navbar navbar navbar-shadow align-items-center']"
+        >
+          <app-navbar-vertical-layout :toggle-vertical-menu-active="toggleVerticalMenuActive" />
+        </slot>
+      </template>
     </b-navbar>
     <!--/ Navbar -->
 
@@ -41,24 +43,23 @@
     <div
       class="sidenav-overlay"
       :class="overlayClasses"
-      @click="isVerticalMenuActive = false"
+      @click="closeVerticalMenu"
     />
     <!-- /Vertical Nav Menu Overlay -->
 
     <!-- Content -->
-
-    <!-- CONTENT TYPE: Left -->
     <transition
       :name="routerTransition"
       mode="out-in"
     >
       <component
         :is="layoutContentRenderer"
-        :key="layoutContentRenderer === 'layout-content-renderer-left' ? $route.meta.navActiveLink || $route.name : null"
+        :key="getContentKey"
       >
         <template
-          v-for="(index, name) in $slots"
-          v-slot:[name]="data"
+          v-for="(_, name) in $slots"
+          :key="name"
+          #[name]="data"
         >
           <slot
             :name="name"
@@ -84,8 +85,9 @@
   </div>
 </template>
 
-<script>
-import { onUnmounted } from 'vue'
+<script setup>
+import { computed, onUnmounted } from 'vue'
+import { useRoute } from 'vue-router'
 import AppNavbarVerticalLayout from '@core/layouts/components/app-navbar/AppNavbarVerticalLayout.vue'
 import AppFooter from '@core/layouts/components/AppFooter.vue'
 import useAppConfig from '@core/app-config/useAppConfig'
@@ -95,67 +97,53 @@ import LayoutContentRendererLeft from '@core/layouts/components/layout-content-r
 import LayoutContentRendererLeftDetached from '@core/layouts/components/layout-content-renderer/LayoutContentRendererLeftDetached.vue'
 import VerticalNavMenu from './components/vertical-nav-menu/VerticalNavMenu.vue'
 import useVerticalLayout from './useVerticalLayout'
-import mixinVerticalLayout from './mixinVerticalLayout'
 
-export default {
-  components: {
-    // AppBreadcrumb,
-    AppNavbarVerticalLayout,
-    AppFooter,
-    VerticalNavMenu,
-    BNavbar,
-    LayoutContentRendererLeftDetached,
-    LayoutContentRendererLeft,
-    LayoutContentRendererDefault,
-  },
-  mixins: [mixinVerticalLayout],
-  computed: {
-    layoutContentRenderer() {
-      const rendererType = this.$route.meta.contentRenderer
-      if (rendererType === 'sidebar-left') return 'layout-content-renderer-left'
-      if (rendererType === 'sidebar-left-detached') return 'layout-content-renderer-left-detached'
-      return 'layout-content-renderer-default'
-    },
-  },
-  setup() {
-    const {
-      routerTransition, navbarBackgroundColor, navbarType, footerType, isNavMenuHidden,
-    } = useAppConfig()
+// Composables
+const route = useRoute()
+const {
+  routerTransition,
+  navbarBackgroundColor,
+  navbarType,
+  footerType,
+  isNavMenuHidden,
+} = useAppConfig()
 
-    const {
-      isVerticalMenuActive,
-      toggleVerticalMenuActive,
-      isVerticalMenuCollapsed,
-      layoutClasses,
-      overlayClasses,
-      resizeHandler,
-      navbarTypeClass,
-      footerTypeClass,
-    } = useVerticalLayout(navbarType, footerType)
+const {
+  isVerticalMenuActive,
+  toggleVerticalMenuActive,
+  isVerticalMenuCollapsed,
+  layoutClasses,
+  overlayClasses,
+  resizeHandler,
+  navbarTypeClass,
+  footerTypeClass,
+} = useVerticalLayout(navbarType, footerType)
 
-    // Resize handler
-    resizeHandler()
-    window.addEventListener('resize', resizeHandler)
-    onUnmounted(() => {
-      window.removeEventListener('resize', resizeHandler)
-    })
+// Computed properties
+const layoutContentRenderer = computed(() => {
+  const rendererType = route.meta.contentRenderer
+  if (rendererType === 'sidebar-left') return 'layout-content-renderer-left'
+  if (rendererType === 'sidebar-left-detached') return 'layout-content-renderer-left-detached'
+  return 'layout-content-renderer-default'
+})
 
-    return {
-      isVerticalMenuActive,
-      toggleVerticalMenuActive,
-      isVerticalMenuCollapsed,
-      overlayClasses,
-      layoutClasses,
-      navbarTypeClass,
-      footerTypeClass,
+const getContentKey = computed(() => {
+  return layoutContentRenderer.value === 'layout-content-renderer-left' 
+    ? route.meta.navActiveLink || route.name 
+    : null
+})
 
-      // App Config
-      routerTransition,
-      navbarBackgroundColor,
-      isNavMenuHidden,
-    }
-  },
+// Methods
+const closeVerticalMenu = () => {
+  isVerticalMenuActive.value = false
 }
+
+// Lifecycle
+resizeHandler()
+window.addEventListener('resize', resizeHandler)
+onUnmounted(() => {
+  window.removeEventListener('resize', resizeHandler)
+})
 </script>
 
 <style lang="scss">
