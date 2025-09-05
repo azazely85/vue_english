@@ -36,25 +36,13 @@ defineRule('alpha-dash', rule_alpha_dash)
 defineRule('alpha-num', rule_alpha_num)
 defineRule('length', rule_length)
 
-defineRule('positive', {
-  validate: validatorPositive,
-  message: 'Please enter positive number!',
-})
+defineRule('positive', validatorPositive)
 
-defineRule('credit-card', {
-  validate: validatorCreditCard,
-  message: 'It is not valid credit card!',
-})
+defineRule('credit-card', validatorCreditCard)
 
-defineRule('password', {
-  validate: validatorPassword,
-  message: 'Your {_field_} must contain at least one uppercase, one lowercase, one special character and one digit',
-})
+defineRule('password', validatorPassword)
 
-defineRule('url', {
-  validate: validatorUrlValidator,
-  message: 'URL is invalid',
-})
+defineRule('url', validatorUrlValidator)
 
 // Export the rule names for backward compatibility
 export const required = 'required'
