@@ -70,7 +70,7 @@
         :key="layoutContentRenderer === 'layout-content-renderer-left' ? $route.meta.navActiveLink || $route.name : null"
       >
         <template
-          v-for="(index, name) in $scopedSlots"
+          v-for="(index, name) in $slots"
           v-slot:[name]="data"
         >
           <slot
@@ -106,7 +106,7 @@ import useAppConfig from '@core/app-config/useAppConfig'
 import { BNavbar } from 'bootstrap-vue-next'
 import { useScrollListener } from '@core/comp-functions/misc/event-listeners'
 
-import { onUnmounted } from '@vue/composition-api'
+import { onUnmounted } from 'vue'
 
 // Content Renderer
 import LayoutContentRendererDefault from '@core/layouts/components/layout-content-renderer/LayoutContentRendererDefault.vue'

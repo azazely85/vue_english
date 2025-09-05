@@ -12,9 +12,9 @@ import {
   alpha_dash as rule_alpha_dash,
   alpha_num as rule_alpha_num,
   length as rule_length,
-} from 'vee-validate/dist/rules'
-import ar from 'vee-validate/dist/locale/ar.json'
-import en from 'vee-validate/dist/locale/en.json'
+} from '@vee-validate/rules'
+import ar from '@vee-validate/i18n/dist/locale/ar.json'
+import en from '@vee-validate/i18n/dist/locale/en.json'
 
 // eslint-disable-next-line object-curly-newline
 import { validatorPositive, validatorUrlValidator, validatorPassword, validatorCreditCard } from './validators'

@@ -20,6 +20,7 @@
     "@fullcalendar/list": "^5.11.0",
     "@fullcalendar/timegrid": "^5.11.0",
     "@fullcalendar/vue3": "^5.11.0",
+    "@vee-validate/i18n": "^4.15.1",
     "@vee-validate/rules": "^4.12.0",
     "@vueuse/core": "^10.5.0",
     "animate.css": "^4.1.1",

@@ -1,6 +1,6 @@
 import {
   reactive, getCurrentInstance, watch, toRefs,
-} from '@vue/composition-api'
+} from 'vue'
 import router from '@/router'
 // eslint-disable-next-line object-curly-newline
 

@@ -57,7 +57,7 @@
         :key="layoutContentRenderer === 'layout-content-renderer-left' ? $route.meta.navActiveLink || $route.name : null"
       >
         <template
-          v-for="(index, name) in $scopedSlots"
+          v-for="(index, name) in $slots"
           v-slot:[name]="data"
         >
           <slot
@@ -85,7 +85,7 @@
 </template>
 
 <script>
-import { onUnmounted } from '@vue/composition-api'
+import { onUnmounted } from 'vue'
 import AppNavbarVerticalLayout from '@core/layouts/components/app-navbar/AppNavbarVerticalLayout.vue'
 import AppFooter from '@core/layouts/components/AppFooter.vue'
 import useAppConfig from '@core/app-config/useAppConfig'
