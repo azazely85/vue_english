@@ -1,7 +1,9 @@
-// const rtl = require('postcss-rtl')
+const rtl = require('postcss-rtl')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   plugins: [
-    // rtl() - temporarily disabled due to compatibility issues
+    autoprefixer(),
+    rtl()
   ],
 }

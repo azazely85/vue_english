@@ -1,4 +1,2 @@
-import Vue from 'vue'
-import FeatherIcon from '@core/components/feather-icon/FeatherIcon.vue'
-
-Vue.component(FeatherIcon.name, FeatherIcon)
+// Vue 3: Global components are now registered in main.js using app.component()
+// This file is kept for reference but components are registered in main.js

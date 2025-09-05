@@ -1,5 +1,5 @@
-import useJwt from '@/auth/jwt/useJwt'
 import { decryptUserData } from '@/_helpers/encryption'
+import jwtDefaultConfig from '@core/auth/jwt/jwtDefaultConfig'
 
 /**
  * Return if user is logged in
@@ -8,10 +8,13 @@ import { decryptUserData } from '@/_helpers/encryption'
  */
 // eslint-disable-next-line arrow-body-style
 export const isUserLoggedIn = () => {
-  return localStorage.getItem('userData') && localStorage.getItem(useJwt.jwtConfig.storageTokenKeyName)
+  return localStorage.getItem('userData') && localStorage.getItem(jwtDefaultConfig.storageTokenKeyName)
 }
 
-export const getUserData = () => (useJwt.getUserData() ? decryptUserData(useJwt.getUserData()) : null)
+export const getUserData = () => {
+  const userData = localStorage.getItem(jwtDefaultConfig.storageUserData)
+  return userData ? decryptUserData(userData) : null
+}
 
 /**
  * This function is used for demo purpose route navigation

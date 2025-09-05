@@ -18,7 +18,13 @@ module.exports = {
       sass: {
         sassOptions: {
           includePaths: ['./node_modules', './src/assets'],
+          quietDeps: true, // Suppress deprecation warnings from dependencies
+          silenceDeprecations: ['legacy-js-api', 'import', 'color-functions', 'global-builtin'], // Suppress specific deprecation warnings
         },
+        additionalData: `
+          // Suppress Sass deprecation warnings
+          $deprecation-warnings: false;
+        `,
       },
     },
   },

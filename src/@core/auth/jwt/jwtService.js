@@ -1,6 +1,5 @@
 import ToastificationContent from '@core/components/toastification/ToastificationContent'
 import jwtDefaultConfig from './jwtDefaultConfig'
-import useJwt from '@/auth/jwt/useJwt'
 
 export default class JwtService {
   // Will be used by this service for making API calls
@@ -45,15 +44,9 @@ export default class JwtService {
 
         // if (status === 500)
         if (response && response.status === 500) {
-          this.$toast({
-            component: ToastificationContent,
-            position: 'top-right',
-            props: {
-              title: response.data.data ? response.data.data : 'Something went wrong!',
-              icon: 'XIcon',
-              variant: 'danger',
-            },
-          })
+          // Vue 3: Toast notifications are handled differently
+          // This will be handled by the component that uses this service
+          console.error('Server Error:', response.data.data ? response.data.data : 'Something went wrong!')
         }
 
         // if (status === 401) {
@@ -124,9 +117,9 @@ export default class JwtService {
   }
 
   logout() {
-    return this.axiosIns.post(`${process.env.VUE_APP_API_URL}/auth/logout`, {
+    return this.axiosIns.post(`${process.env.VUE_APP_API_URL}/auth/logout`, {}, {
       headers: {
-        Authorization: `Bearer ${useJwt.getToken()}`,
+        Authorization: `Bearer ${this.getToken()}`,
       },
     })
   }

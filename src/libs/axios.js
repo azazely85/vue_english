@@ -1,5 +1,3 @@
-import Vue from 'vue'
-import useJwt from '@core/auth/jwt/useJwt'
 import jwtDefaultConfig from '../@core/auth/jwt/jwtDefaultConfig'
 
 // axios
@@ -10,9 +8,10 @@ const axiosIns = axios.create({
   // ================================
   baseURL: `${process.env.VUE_APP_API_URL}`,
   // timeout: 1000,
-  headers: { Authorization: `${jwtDefaultConfig.tokenType} ${useJwt.getToken}`, Accept: 'application/json' },
+  headers: { Accept: 'application/json' },
 })
 
-Vue.prototype.$http = axiosIns
+// Vue 3: Global properties are now set in main.js using app.config.globalProperties
+// Vue.prototype.$http = axiosIns
 
 export default axiosIns

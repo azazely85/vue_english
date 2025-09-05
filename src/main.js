@@ -1,13 +1,12 @@
 import { createApp } from 'vue'
-import VueMoment from 'vue-moment'
+import moment from 'moment'
 import { ToastPlugin, ModalPlugin } from 'bootstrap-vue-next'
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+import FeatherIcon from '@core/components/feather-icon/FeatherIcon.vue'
 import router from './router'
 import store from './store'
 import App from './App.vue'
-
-// Global Components
-import './global-components'
+import axiosIns from '@/libs/axios'
 
 // 3rd party plugins
 import '@/libs/toastification'
@@ -25,15 +24,17 @@ require('@/assets/scss/style.scss')
 
 const app = createApp(App)
 
+// Vue 3: Set global properties
+app.config.globalProperties.$http = axiosIns
+app.config.globalProperties.$moment = moment
+
 // BSV Plugin Registration
 app.use(ToastPlugin)
 app.use(ModalPlugin)
 
-// moment
-app.use(VueMoment)
-
 // Global component registration
 app.component('VueCtkDateTimePicker', VueCtkDateTimePicker)
+app.component(FeatherIcon.name, FeatherIcon)
 
 // Use router and store
 app.use(router)

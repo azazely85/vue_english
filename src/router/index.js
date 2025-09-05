@@ -144,7 +144,7 @@ const router = createRouter({
     ...pages,
     ...others,
     {
-      path: '*',
+      path: '/:pathMatch(.*)*',
       redirect: 'error-404',
     },
   ],

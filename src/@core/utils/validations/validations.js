@@ -1,4 +1,4 @@
-import { extend, localize } from 'vee-validate'
+import { defineRule, configure } from 'vee-validate'
 import {
   required as rule_required,
   email as rule_email,
@@ -23,76 +23,69 @@ import { validatorPositive, validatorUrlValidator, validatorPassword, validatorC
 // General
 // ////////////////////////////////////////////////////////
 
-export const required = extend('required', rule_required)
+defineRule('required', rule_required)
+defineRule('email', rule_email)
+defineRule('min', rule_min)
+defineRule('confirmed', rule_confirmed)
+defineRule('regex', rule_regex)
+defineRule('between', rule_between)
+defineRule('alpha', rule_alpha)
+defineRule('integer', rule_integer)
+defineRule('digits', rule_digits)
+defineRule('alpha-dash', rule_alpha_dash)
+defineRule('alpha-num', rule_alpha_num)
+defineRule('length', rule_length)
 
-export const email = extend('email', rule_email)
-
-export const min = extend('min', rule_min)
-
-export const confirmed = extend('confirmed', rule_confirmed)
-
-export const regex = extend('regex', rule_regex)
-
-export const between = extend('between', rule_between)
-
-export const alpha = extend('alpha', rule_alpha)
-
-export const integer = extend('integer', rule_integer)
-
-export const digits = extend('digits', rule_digits)
-
-export const alphaDash = extend('alpha-dash', rule_alpha_dash)
-
-export const alphaNum = extend('alpha-num', rule_alpha_num)
-
-export const length = extend('length', rule_length)
-
-export const positive = extend('positive', {
+defineRule('positive', {
   validate: validatorPositive,
   message: 'Please enter positive number!',
 })
 
-export const credit = extend('credit-card', {
+defineRule('credit-card', {
   validate: validatorCreditCard,
   message: 'It is not valid credit card!',
 })
 
-export const password = extend('password', {
+defineRule('password', {
   validate: validatorPassword,
   message: 'Your {_field_} must contain at least one uppercase, one lowercase, one special character and one digit',
 })
 
-export const url = extend('url', {
+defineRule('url', {
   validate: validatorUrlValidator,
   message: 'URL is invalid',
 })
 
+// Export the rule names for backward compatibility
+export const required = 'required'
+export const email = 'email'
+export const min = 'min'
+export const confirmed = 'confirmed'
+export const regex = 'regex'
+export const between = 'between'
+export const alpha = 'alpha'
+export const integer = 'integer'
+export const digits = 'digits'
+export const alphaDash = 'alpha-dash'
+export const alphaNum = 'alpha-num'
+export const length = 'length'
+export const positive = 'positive'
+export const credit = 'credit-card'
+export const password = 'password'
+export const url = 'url'
+
 // Install English and Arabic localizations.
-localize({
-  en: {
-    messages: en.messages,
-    names: {
-      email: 'Email',
-      password: 'Password',
-    },
-    fields: {
-      password: {
-        min: '{_field_} is too short, you want to get hacked?',
-      },
-    },
+configure({
+  generateMessage: (ctx) => {
+    const messages = {
+      en: en.messages,
+      ar: ar.messages,
+    }
+    const locale = 'en' // You can make this dynamic based on your app's locale
+    const message = messages[locale]?.[ctx.rule.name]
+    return message || `${ctx.field} is not valid`
   },
-  ar: {
-    messages: ar.messages,
-    names: {
-      email: 'البريد الإلكتروني',
-      password: 'كلمة السر',
-    },
-    fields: {
-      password: {
-        min: 'كلمة السر قصيرة جداً سيتم اختراقك',
-      },
-    },
-  },
+  validateOnInput: true,
 })
 // ////////////////////////////////////////////////////////
 // NOTE:
